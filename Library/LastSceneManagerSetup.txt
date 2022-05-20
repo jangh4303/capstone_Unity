@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Tiny_Toony_City_Demo/Scenes/Demo_Scene.unity
+- path: Assets/Scenes/Luancher.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
