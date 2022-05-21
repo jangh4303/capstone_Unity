@@ -146,12 +146,7 @@ namespace StarterAssets
 
         private void Start()
         {
-            if (!PV.IsMine)     // 다른 사용자와 카메라 곂치는걸 막음 PV다르면 그내부 컴포넌트 파괴
-            {
-                Destroy(GetComponentInChildren<Camera>().gameObject);
-                Destroy(transform.Find("PlayerFollowCamera").gameObject);
-                Destroy(transform.Find("PlayerCameraRoot").gameObject);
-            }
+           
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
 
             _hasAnimator = TryGetComponent(out _animator);
@@ -168,6 +163,13 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+
+            if (!PV.IsMine)     // 다른 사용자와 카메라 곂치는걸 막음 PV다르면 그내부 컴포넌트 파괴
+            {
+                Destroy(GetComponentInChildren<Camera>().gameObject);
+                Destroy(transform.Find("PlayerFollowCamera").gameObject);
+               // Destroy(transform.Find("PlayerCameraRoot").gameObject);
+            }
 
         }
 

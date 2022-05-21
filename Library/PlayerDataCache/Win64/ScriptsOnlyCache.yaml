@@ -9,8 +9,10 @@ ScriptsOnlyBuild:
     - PlayerManager
     - RoomListItem
     - RoomManager
+    - SpatialAudio
     - StarterAssets.StarterAssetsInputs
     - StarterAssets.ThirdPersonController
+    - VoiceChatManager
     Cinemachine.dll:
     - Cinemachine.Cinemachine3rdPersonFollow
     - Cinemachine.CinemachineBasicMultiChannelPerlin
@@ -18,6 +20,8 @@ ScriptsOnlyBuild:
     - Cinemachine.CinemachinePipeline
     - Cinemachine.CinemachineVirtualCamera
     - Cinemachine.NoiseSettings
+    PhotonUnityNetworking.Editor.dll:
+    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonTransformView
     - Photon.Pun.PhotonView
@@ -137,89 +141,93 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1464}
+      Script: {instanceID: 1538}
     - Class: 114
-      Script: {instanceID: 1466}
+      Script: {instanceID: 1540}
     - Class: 114
-      Script: {instanceID: 1468}
+      Script: {instanceID: 1542}
     - Class: 114
-      Script: {instanceID: 1470}
+      Script: {instanceID: 1544}
     - Class: 114
-      Script: {instanceID: 1524}
+      Script: {instanceID: 1600}
     - Class: 114
-      Script: {instanceID: 1560}
+      Script: {instanceID: 1638}
     - Class: 114
-      Script: {instanceID: 1636}
+      Script: {instanceID: 1714}
     - Class: 114
-      Script: {instanceID: 1650}
+      Script: {instanceID: 1728}
     - Class: 114
-      Script: {instanceID: 1724}
+      Script: {instanceID: 1806}
     - Class: 114
-      Script: {instanceID: 1794}
+      Script: {instanceID: 1878}
     - Class: 114
-      Script: {instanceID: 1994}
+      Script: {instanceID: 2088}
     - Class: 114
-      Script: {instanceID: 2070}
+      Script: {instanceID: 2166}
     - Class: 114
-      Script: {instanceID: 2376}
+      Script: {instanceID: 2486}
     - Class: 114
-      Script: {instanceID: 2400}
+      Script: {instanceID: 2512}
     - Class: 114
-      Script: {instanceID: 2414}
+      Script: {instanceID: 2526}
     - Class: 114
-      Script: {instanceID: 2496}
-    - Class: 114
-      Script: {instanceID: 2564}
-    - Class: 114
-      Script: {instanceID: 2570}
-    - Class: 114
-      Script: {instanceID: 2574}
-    - Class: 114
-      Script: {instanceID: 2606}
-    - Class: 114
-      Script: {instanceID: 2628}
+      Script: {instanceID: 2612}
     - Class: 114
       Script: {instanceID: 2682}
     - Class: 114
-      Script: {instanceID: 2842}
+      Script: {instanceID: 2688}
     - Class: 114
-      Script: {instanceID: 2902}
+      Script: {instanceID: 2692}
     - Class: 114
-      Script: {instanceID: 2910}
+      Script: {instanceID: 2726}
     - Class: 114
-      Script: {instanceID: 2914}
+      Script: {instanceID: 2750}
     - Class: 114
-      Script: {instanceID: 2950}
+      Script: {instanceID: 2806}
     - Class: 114
-      Script: {instanceID: 3192}
+      Script: {instanceID: 2960}
     - Class: 114
-      Script: {instanceID: 3310}
+      Script: {instanceID: 2972}
     - Class: 114
-      Script: {instanceID: 3430}
+      Script: {instanceID: 3034}
     - Class: 114
-      Script: {instanceID: 3626}
+      Script: {instanceID: 3042}
     - Class: 114
-      Script: {instanceID: 3648}
+      Script: {instanceID: 3046}
     - Class: 114
-      Script: {instanceID: 3654}
+      Script: {instanceID: 3084}
     - Class: 114
-      Script: {instanceID: 3802}
+      Script: {instanceID: 3332}
     - Class: 114
-      Script: {instanceID: 3838}
+      Script: {instanceID: 3462}
     - Class: 114
-      Script: {instanceID: 4012}
+      Script: {instanceID: 3584}
     - Class: 114
-      Script: {instanceID: 4086}
+      Script: {instanceID: 3784}
     - Class: 114
-      Script: {instanceID: 4102}
+      Script: {instanceID: 3806}
     - Class: 114
-      Script: {instanceID: 4378}
+      Script: {instanceID: 3812}
     - Class: 114
-      Script: {instanceID: 4380}
+      Script: {instanceID: 3964}
     - Class: 114
-      Script: {instanceID: 4532}
+      Script: {instanceID: 4004}
     - Class: 114
-      Script: {instanceID: 4582}
+      Script: {instanceID: 4180}
+    - Class: 114
+      Script: {instanceID: 4262}
+    - Class: 114
+      Script: {instanceID: 4278}
+    - Class: 114
+      Script: {instanceID: 4564}
+    - Class: 114
+      Script: {instanceID: 4566}
+    - Class: 114
+      Script: {instanceID: 4720}
+    - Class: 114
+      Script: {instanceID: 4772}
+    - Class: 114
+      Script: {instanceID: 33708}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -409,6 +417,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Utilities.dll
     namespaceName: Photon.Pun.UtilityScripts
     className: OnPointerOverTooltip
+  - hash:
+      serializedVersion: 2
+      Hash: 062454e6366e77e544e9cd061e7ccb19
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: agora_gaming_rtc
+    className: VideoSurface
   - hash:
       serializedVersion: 2
       Hash: 23501adfbc49de0d419848d5c1c7d11b
@@ -709,6 +723,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: 
     className: CinemachineTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: VoiceChatManager
   - hash:
       serializedVersion: 2
       Hash: 5e84370a36252d6aa37d6a7bd37710f7
@@ -1377,6 +1397,12 @@ ScriptsOnlyBuild:
     className: InputSystemObject
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: agora_gaming_rtc
+    className: AgoraCallbackQueue
+  - hash:
+      serializedVersion: 2
       Hash: b5c3dbcb94925c8b595ad16a62b44788
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -1453,6 +1479,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Utilities.dll
     namespaceName: Photon.Pun.UtilityScripts
     className: PhotonTeamsManager
+  - hash:
+      serializedVersion: 2
+      Hash: bf4698a3b70ae92d7166ab31c3de7991
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpatialAudio
   platform: 19
   scenePathNames:
   - Assets/Scenes/Luancher.unity

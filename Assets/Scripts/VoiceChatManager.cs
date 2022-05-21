@@ -4,6 +4,7 @@ using UnityEngine;
 using agora_gaming_rtc;
 using System;
 using Photon.Pun;
+using Hashtable = ExitGames.Client.Photon.Hashtable;        //photon hashtable 사용
 
 public class VoiceChatManager : MonoBehaviourPunCallbacks
 {
@@ -35,6 +36,8 @@ public class VoiceChatManager : MonoBehaviourPunCallbacks
         rtcEngine.OnJoinChannelSuccess += OnJoinChannelSuccess;
         rtcEngine.OnLeaveChannel += OnLeaveChannel;
         rtcEngine.OnError += OnError;
+
+        rtcEngine.EnableSoundPositionIndication(true);
     }
 
     void OnError(int error, string msg)
@@ -47,10 +50,20 @@ public class VoiceChatManager : MonoBehaviourPunCallbacks
         Debug.Log("Left channel with duration " + stats.duration);
     }
 
-    void OnJoinChannelSuccess(string channelName, uint uid, int elapsed)
+    void OnJoinChannelSuccess(string channelName, uint uid, int elapsed)        //채널 조인 성공시
     {
         Debug.Log("Joined channel " + channelName);
+        // agoraID 해쉬 태이블에 추가
+        Hashtable hash = new Hashtable();
+        hash.Add("agoraID", uid.ToString());        // agoraID = uid , string으로 형변환
+        PhotonNetwork.SetPlayerCustomProperties(hash);
     }
+
+    public IRtcEngine GetRtcEngine()
+    {
+        return rtcEngine;
+    }
+
 
     public override void OnJoinedRoom()
     {
