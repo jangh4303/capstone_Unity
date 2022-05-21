@@ -15,6 +15,11 @@ public class Launcher : MonoBehaviourPunCallbacks
 	[SerializeField] TMP_Text roomNameText;
 	[SerializeField] Transform roomListContent;
 	[SerializeField] GameObject roomListItemPrefab;
+	[SerializeField] Transform playerListContent;
+	[SerializeField] GameObject PlayerListItemPrefab;
+	[SerializeField] GameObject startGameButton;
+
+
 	public static Launcher Instance;
 
 	
@@ -41,6 +46,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 	{
 		MenuManager.Instance.OpenMenu("StartMenu");
 		Debug.Log("Joined Lobby");
+		PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000");
 	}
 
 	public void CreateRoom()
@@ -71,7 +77,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 		 
 		MenuManager.Instance.OpenMenu("room");
 		roomNameText.text = PhotonNetwork.CurrentRoom.Name; 
-		/* 플레이어 리스트
+		// 플레이어 리스트
 		Player[] players = PhotonNetwork.PlayerList;
 
 		foreach (Transform child in playerListContent)
@@ -82,17 +88,17 @@ public class Launcher : MonoBehaviourPunCallbacks
 		for (int i = 0; i < players.Count(); i++)
 		{
 			Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);
-		}*/
+		}
 
-		// 스타트 버튼 startGameButton.SetActive(PhotonNetwork.IsMasterClient);
+		 startGameButton.SetActive(PhotonNetwork.IsMasterClient);  // 스타트 버튼 방장만 보임
 	}
 
-	/*public override void OnMasterClientSwitched(Player newMasterClient)
+	public override void OnMasterClientSwitched(Player newMasterClient)
 	{
 		startGameButton.SetActive(PhotonNetwork.IsMasterClient);
 	}
 
-	*/
+	
 
 	public void StartGame()
 	{
@@ -127,9 +133,9 @@ public class Launcher : MonoBehaviourPunCallbacks
 			Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
 		}
 	}
-	/*
+	
 	public override void OnPlayerEnteredRoom(Player newPlayer)
 	{
 		Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
-	}*/
+	}
 }
