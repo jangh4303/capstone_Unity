@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
 using agora_gaming_rtc;
 using System;
 using Photon.Pun;
@@ -25,6 +26,7 @@ public class VoiceChatManager : MonoBehaviourPunCallbacks
         }
         else
         {
+            Permission.RequestUserPermission(Permission.Microphone);
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
@@ -52,7 +54,7 @@ public class VoiceChatManager : MonoBehaviourPunCallbacks
 
     void OnJoinChannelSuccess(string channelName, uint uid, int elapsed)        //채널 조인 성공시
     {
-        Debug.Log("Joined channel " + channelName);
+        
         // agoraID 해쉬 태이블에 추가
         Hashtable hash = new Hashtable();
         hash.Add("agoraID", uid.ToString());        // agoraID = uid , string으로 형변환

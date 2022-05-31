@@ -31,13 +31,13 @@ public class Launcher : MonoBehaviourPunCallbacks
 	void Start()
 	{
 		MenuManager.Instance.OpenMenu("loading");
-		Debug.Log("Connecting to Master");
+		
 		PhotonNetwork.ConnectUsingSettings();
 	}
 
 	public override void OnConnectedToMaster()
 	{
-		Debug.Log("Connected to Master");
+		
 		PhotonNetwork.JoinLobby();
 		PhotonNetwork.AutomaticallySyncScene = true;
 	}
@@ -45,7 +45,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 	public override void OnJoinedLobby()
 	{
 		MenuManager.Instance.OpenMenu("StartMenu");
-		Debug.Log("Joined Lobby");
+	
 		PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000");
 	}
 
@@ -62,7 +62,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 	public override void OnCreateRoomFailed(short returnCode, string message)
 	{
 		errorText.text = "Room Creation Failed: " + message;
-		Debug.LogError("Room Creation Failed: " + message);
+		
 		MenuManager.Instance.OpenMenu("error");
 	}
 

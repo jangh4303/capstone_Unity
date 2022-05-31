@@ -11,9 +11,10 @@ public class PotalIn : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            Debug.Log(col.gameObject.name);
+
             col.transform.position = Taget.position;
-            Debug.Log(col.transform.position);
+            col.transform.rotation = Taget.rotation;
+
 
         }
     }
