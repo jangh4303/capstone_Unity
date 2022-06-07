@@ -50,7 +50,7 @@ public class SpatialAudio : MonoBehaviour
                     SpatialAudio other = spatialAudioFromPlayers[player];
 
                     float gain = GetGain(other.transform.position);
-                    float pan = GetGain(other.transform.position);
+                    float pan = GetPan(other.transform.position);
 
                     agoraAudioEffects.SetRemoteVoicePosition(uint.Parse((string)agoraID), pan, gain);
                 

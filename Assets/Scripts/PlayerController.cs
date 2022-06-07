@@ -22,6 +22,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
 	public float runSpeed;
     public float speed;
 
+
+	// 오디오 사운드
+	public AudioClip LandingAudioClip;
+	public AudioClip[] FootstepAudioClips;
+	[Range(0, 1)] public float FootstepAudioVolume = 0.5f;
+	
 	/*[Tooltip("The height the player can jump")]
     public float JumpHeight = 1.2f;
 
@@ -55,6 +61,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
 	public bool runKeyDown;
     public bool jumpKeyDown;
 
+
 	Vector3 smoothMoveVelocity;
 	Vector3 moveAmount;
 	Vector3 moveVec;
@@ -62,6 +69,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
     PhotonView PV;
 	Rigidbody rb;
 	PlayerManager playerManager;
+	
+
 
 	void Awake()
     {
@@ -74,7 +83,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
 		Cursor.lockState = CursorLockMode.Confined;
 
 		//playerManager = PhotonView.Find((int)PV.InstantiationData[0]).GetComponent<PlayerManager>();
-
+		
+		
 	}
 
     void Start()
@@ -88,6 +98,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
 		}
 		_fallTimeoutDelta = FallTimeout;
+		
 	}
 
     // Update is called once per frame
@@ -106,7 +117,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
 		Jump();
 
 		SubMenu();
-
+		
 
 
 
@@ -153,6 +164,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
 			{
 				rb.AddForce(transform.up * jumpForce);
 			}
+			
 		}
         else
 		{ // fall timeout
@@ -202,4 +214,26 @@ public class PlayerController : MonoBehaviourPunCallbacks
 		}
 	}
 
+
+
+	private void OnFootstep(AnimationEvent animationEvent)
+	{
+		if (animationEvent.animatorClipInfo.weight > 0.5f)
+		{
+			if (FootstepAudioClips.Length > 0)
+			{
+				var index = Random.Range(0, FootstepAudioClips.Length);
+				AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.position, FootstepAudioVolume);
+			}
+		}
+	}
+
+	private void OnLand(AnimationEvent animationEvent)
+	{
+		if (animationEvent.animatorClipInfo.weight > 0.5f)
+		{
+			AudioSource.PlayClipAtPoint(LandingAudioClip, transform.position, FootstepAudioVolume);
+		}
+	}
+	//transform.TransformPoint(_controller.center)
 }

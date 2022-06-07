@@ -762,6 +762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 9125773312433486935}
   speed: 0.1
+  getCamera: {fileID: 0}
   btn: {fileID: 0}
   cameraTransform: {fileID: 9125773312368006124}
   cameraSensitivity: 1.5
@@ -782,7 +783,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9125773312368943290
 RectTransform:
   m_ObjectHideFlags: 0
@@ -921,6 +922,7 @@ GameObject:
   - component: {fileID: 9125773312433486938}
   - component: {fileID: 9125773312433486937}
   - component: {fileID: 9125773312433486936}
+  - component: {fileID: 1622561651069454150}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Player
@@ -1013,11 +1015,24 @@ MonoBehaviour:
   ui: {fileID: 9125773312368943289}
   joystick: {fileID: 9125773313423826101}
   mouseSensitivity: 1.5
-  jumpForce: 150
+  jumpForce: 50
   smoothTime: 0.05
   joy: {fileID: 9125773313423826102}
   runSpeed: 5
   speed: 3
+  LandingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
+  FootstepAudioClips:
+  - {fileID: 8300000, guid: 72f526a6a9890f643a88e85a61c86c8a, type: 3}
+  - {fileID: 8300000, guid: 85016e0f2b01da248b9663dd49a161b0, type: 3}
+  - {fileID: 8300000, guid: 186de84b3207156479abe98f4958fed0, type: 3}
+  - {fileID: 8300000, guid: 1a91fcd19acf1e54bba0945d9f390849, type: 3}
+  - {fileID: 8300000, guid: 14e8a8d2158bec840b56c54f5266e692, type: 3}
+  - {fileID: 8300000, guid: 29841e7d5bbfb5b419c9ad16ca8bc4c1, type: 3}
+  - {fileID: 8300000, guid: dd1af302b8902684d9381de1f2d3a5af, type: 3}
+  - {fileID: 8300000, guid: 67c8b33e424ccdc4486edf538ab91c5a, type: 3}
+  - {fileID: 8300000, guid: 274649b0e221539409070ebf6c18918b, type: 3}
+  - {fileID: 8300000, guid: a3194b8bbc96ef84fab1f98f4b7dae3e, type: 3}
+  FootstepAudioVolume: 0.3
   FallTimeout: 0.15
   runKeyDown: 0
   jumpKeyDown: 0
@@ -1094,6 +1109,19 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!114 &1622561651069454150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9125773312433486935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b86e19f2ce5624ab3cf19145ec3cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 10
 --- !u!1 &9125773312436657110
 GameObject:
   m_ObjectHideFlags: 0

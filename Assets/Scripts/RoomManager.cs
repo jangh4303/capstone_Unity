@@ -18,6 +18,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 		}
 		DontDestroyOnLoad(gameObject);	// i am the only one..
 		Instance = this;
+		Debug.Log("test");
 	}
 
 	public override void OnEnable()
